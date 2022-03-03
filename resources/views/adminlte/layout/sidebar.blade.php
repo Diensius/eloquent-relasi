@@ -14,7 +14,7 @@
         </div>
         <div class="info">
           @auth
-            <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+            <a href="#" class="d-block">{{ Auth::user()->name }} ({{ Auth::user()->profile->umur }})</a>
           @endauth
           @guest
             <a href="#" class="d-block">Belum Login</a>

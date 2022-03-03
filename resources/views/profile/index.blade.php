@@ -1,37 +1,43 @@
 @extends('/adminlte/master/master')
 
 @section('title')
-    Update Profile {{$cast->nama}}
+    Update Profile
 @endsection
 
 @section('content')
-    <form action="/cast/{{$cast->id}}" method="POST" enctype="multipart/form-data">
+    <form action="/profile/{{$profile->id}}" method="POST">
         @csrf
         @method('put')
 
-        <h1>Tambah Cast Baru</h1>
-
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="text" disabled value="{{$profile->user->email}}" class="form-control">
+        </div>
         <div class="mb-3">
             <label>Nama</label>
-            <input type="text" name="nama" value="{{$cast->nama}}" class="form-control">
+            <input type="text" disabled value="{{$profile->user->name}}" class="form-control">
         </div>
-        @error('nama')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
         <div class="mb-3">
             <label>Umur</label>
-            <input type="text" name="umur" value="{{$cast->umur}}" class="form-control">
+            <input type="text" name="umur" value="{{$profile->umur}}" class="form-control">
         </div>
         @error('umur')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <div class="mb-3">
             <label>Biodata</label>
-            <input type="file" class="form-control" name="bio">
+            <textarea name="biodata" class="form-control" rows="3">{{$profile->biodata}}</textarea>
         </div>
-        <!--@error('bio')
+        @error('biodata')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror-->
+        @enderror
+        <div class="mb-3">
+            <label>Alamat</label>
+            <textarea name="alamat" class="form-control" rows="3">{{$profile->alamat}}</textarea>
+        </div>
+        @error('alamat')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Ubah Data</button>
         </div>

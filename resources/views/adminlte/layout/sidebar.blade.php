@@ -45,6 +45,22 @@
               <p>Dashboard</p>
             </a>
           </li>
+          @auth
+          <li class="nav-item">
+            <a href="/cast" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Cast</p>
+            </a>
+          </li>
+          @endauth
+          @auth
+          <li class="nav-item">
+            <a href="/profile" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>Profile</p>
+            </a>
+          </li>
+          @endauth
           @auth <!-- fungsi ini akan menyembunyikan item jika belum login -->
           <li class="nav-item">
             <a href="#" class="nav-link">

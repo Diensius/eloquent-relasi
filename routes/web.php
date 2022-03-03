@@ -15,6 +15,7 @@
     return view('welcome');
 }); */
 
+
 Route::get('/', 'HomeController@index');
 Route::get('/register', 'AuthController@register');
 Route::get('/welcome', 'AuthController@welcome');
@@ -33,6 +34,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cast/{cast_id}/edit', 'CastController@edit');
     Route::put('/cast/{cast_id}', 'CastController@update');
     Route::delete('/cast/{cast_id}', 'CastController@destroy');
+
+    Route::get('/profile', 'ProfileController@index');
+    Route::put('/profile/{profile_id}', 'ProfileController@update');
 });
 
 
